@@ -1,24 +1,29 @@
 import React from 'react';
+import {
+  BrowserRouter as Router, Route, Switch
+} from "react-router-dom";
 import './App.css';
+import About from './components/Pages/About';
+import Contact from './components/Pages/Contact';
+import Header from './components/Pages/Header';
+import Home from './Home';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src='/assets/logo.svg' className="App-logo" alt="logo" />
-        <p>
-          Hello from <strong>React.</strong>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <Switch>
+        <Route path="/">
+          <Home />
+        </Route>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="/contact">
+          <Contact />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
